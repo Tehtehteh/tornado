@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ static_url('bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li role="presentation">
+                    <a href="authors">Author</a>
+                </li>
+                <li role="presentation">
+                    <a href="books">Books</a>
+                </li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="text-center">Authors</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid">
+                    <table class="table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <p class="text-center">Last week</p>
+                                </td>
+                                <td>
+                                    <p class="text-center">Last month</p>
+                                </td>
+                                <td>
+                                    <p class="text-center">Total</p>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for count in auth_count %}
+                                    <td>{{count}}</td>
+                                {% end %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="text-center">Books</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid">
+                    <table class="table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <p class="text-center">Last week</p>
+                                </td>
+                                <td>
+                                    <p class="text-center">Last month</p>
+                                </td>
+                                <td>
+                                    <p class="text-center">Total</p>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for count in auth_count %}
+                                    <td>{{count}}</td>
+                                {% end %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
