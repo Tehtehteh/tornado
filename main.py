@@ -17,14 +17,15 @@ create table Book(
 create table Author(
     id int primary key,
     a_date datetime,
-
+    name text,
+    email text)
 
 """
 
 
 define("port", default=8888, help="run on the given port", type=int)
 define("mysql_host", default="127.0.0.1:3306", help="blog database host")
-define("mysql_database", default="test", help="blog database name")
+define("mysql_database", default="task", help="blog database name")
 define("mysql_user", default="root", help="blog database user")
 define("mysql_password", default="imonomy", help="blog database password")
 
@@ -37,9 +38,13 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class HomeHandler(BaseHandler):
     def get(self):
-        auth_count = [
-            self.db.query('Select count(*) ')
-        ]
+        bk_count = []
+        auth_count = []
+        for x in (7, 30):
+            auth_count.extend(self.db.query('Select count(*) from Author where datediff(a_date, now()) < %i' % (x,)))
+            bk_count.extend(self.db.query('Select count(*) from Book where datediff (b_date, now()) M %i' % (x,)))
+        auth_count.extend(self.db.query('Select count(*) from Author'))
+        print(dir(auth_count[0]))
         self.render('base.html', auth_count=auth_count, book_count=[40, 100, 500])
 
 
