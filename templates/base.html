@@ -43,8 +43,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                {% for count in auth_count %}
-                                    <td>{{count}}</td>
+                                {% for cc in auth_count %}
+                                    <td class="text-center">{{cc.get('count(*)')}}</td>
                                 {% end %}
                             </tr>
                         </tbody>
@@ -74,8 +74,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                {% for count in auth_count %}
-                                    <td>{{count}}</td>
+                                {% for count in book_count %}
+                                    <td class="text-center">{{count}}</td>
                                 {% end %}
                             </tr>
                         </tbody>
